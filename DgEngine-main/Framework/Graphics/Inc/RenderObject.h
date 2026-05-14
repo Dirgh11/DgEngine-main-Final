@@ -1,0 +1,42 @@
+#pragma once
+
+#include "MeshBuffer.h"
+#include "Transform.h"
+#include "Material.h"
+#include "TextureManager.h"
+#include "ModelManager.h"
+#include "Animator.h"
+
+namespace DgEngine::Graphics
+{
+	struct Skeleton;
+
+	class RenderObject
+	{
+	public:
+		void Terminate();
+
+		Transform  transform;                      // location/orientation
+		MeshBuffer meshBuffer;                     // shape
+		Material   material;                       // light data
+		TextureId diffuseMapId;                    // diffuse texture for an object 
+		TextureId specMapId;                       // speculartexture for an object
+		TextureId normalMapId;                     // normal map texture for an object
+		TextureId bumpMapId;                       // bump map texture for an object
+	};
+
+	class RenderGroup
+	{
+	public:
+		void Initialize(const std::filesystem::path& modelFilePath, const Animator* anim = nullptr);
+		void Initialize(const Model& model, const Animator* anim = nullptr);
+		void Terminate();
+
+		ModelId modelId;
+		Transform transform;
+		std::vector<RenderObject> renderObjects;
+
+		const Skeleton* skeleton = nullptr;
+		const Animator* animator = nullptr;
+	};
+}
