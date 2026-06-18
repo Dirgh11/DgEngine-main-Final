@@ -1,0 +1,1 @@
+﻿C:\Users\engin\OneDrive\Desktop\08_HelloSolarSystem\08_HelloSolarSystem.vcxproj(70,5): error MSB4019: The imported project "C:\Users\engin\OneDrive\VSProps\DgEngine.props" was not found. Confirm that the expression in the Import declaration "..\..\VSProps\DgEngine.props", which evaluated to "..\..\VSProps\DgEngine.props", is correct, and that the file exists on disk.
